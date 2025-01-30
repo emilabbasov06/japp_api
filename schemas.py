@@ -7,3 +7,12 @@ class CompanySchema(BaseModel):
   
   class Config:
     from_attributes = True
+
+
+class CreateCompanySchema(BaseModel):
+  company_name: str
+  company_password: str
+  company_email: str
+  
+  class Config:
+    from_attributes = True

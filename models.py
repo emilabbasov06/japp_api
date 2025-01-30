@@ -9,14 +9,14 @@ Base = declarative_base()
 class CategoryModel(Base):
   __tablename__ = 'categories'
   
-  category_id = Column(Integer, Sequence('category_id_seq'), primary_key=True)
+  category_id = Column(Integer, primary_key=True, autoincrement=True)
   category_name = Column(String(255))
 
 
 class CompanyModel(Base):
   __tablename__ = 'companies'
   
-  company_id = Column(Integer, Sequence('company_id_seq'), primary_key=True)
+  company_id = Column(Integer, primary_key=True, autoincrement=True)
   company_name = Column(String(255))
   company_email = Column(String(255), unique=True)
   company_password = Column(String(255))
@@ -25,7 +25,7 @@ class CompanyModel(Base):
 class VacancyModel(Base):
   __tablename__ = 'vacancies'
   
-  vacancy_id = Column(Integer, Sequence('vacancy_id_seq'), primary_key=True)
+  vacancy_id = Column(Integer, primary_key=True, autoincrement=True)
   vacancy_title = Column(String(255))
   vacancy_content = Column(Text)
   vacancy_location = Column(String(255))

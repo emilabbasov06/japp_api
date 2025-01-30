@@ -21,6 +21,9 @@ def get_categories(db: Session = Depends(get_db)):
 @router.get('/{id}')
 def get_category(id:int, db: Session = Depends(get_db)):
   category = db.query(CategoryModel).filter(CategoryModel.category_id == id).first()
+  if not category:
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="A category with this id doesn't exist!")
+  
   return {
     'category': category
   }

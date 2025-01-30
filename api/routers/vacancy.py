@@ -20,6 +20,9 @@ def get_vacancies(db: Session = Depends(get_db)):
 @router.get('/{id}')
 def get_vacancy(id: int, db: Session = Depends(get_db)):
   vacancy = db.query(VacancyModel).filter(VacancyModel.vacancy_id == id).first()
+  if not vacancy:
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="A vacancy with this id doesn't exist!")
+  
   return {
     'vacancy': vacancy
   }
