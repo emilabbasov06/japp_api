@@ -26,3 +26,17 @@ def get_vacancy(id: int, db: Session = Depends(get_db)):
   return {
     'vacancy': vacancy
   }
+
+
+@router.delete('/{id}', status_code=status.HTTP_202_ACCEPTED)
+def delete_vacancy(id: int, db: Session = Depends(get_db)):
+  deleted_vacancy = db.query(VacancyModel).filter(VacancyModel.vacancy_id == id).first()
+  if not delete_vacancy:
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="A vacancy with this id doesn't exist!")
+    return
+  db.delete(deleted_vacancy)
+  db.commit()
+  
+  return {
+    'deleted_vacancy': deleted_vacancy
+  }
