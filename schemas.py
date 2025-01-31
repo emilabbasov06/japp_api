@@ -16,3 +16,13 @@ class CreateCompanySchema(BaseModel):
   
   class Config:
     from_attributes = True
+
+
+class UpdateVacancySchema(BaseModel):
+  vacancy_title: str
+  vacancy_content: str
+  vacancy_location: str
+  vacancy_salary: float
+  vacancy_type: str
+  vacancy_start_date: str
+  vacancy_end_date: str
