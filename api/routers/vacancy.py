@@ -47,8 +47,7 @@ def delete_vacancy(id: int, db: Session = Depends(get_db)):
 def update_vacancy(id: int, vacancy: UpdateVacancySchema, db: Session = Depends(get_db)):
   u_vacancy = db.query(VacancyModel).filter(VacancyModel.vacancy_id == id).first()
   if not u_vacancy:
-      raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="A vacancy with this id doesn't exist!")
-      return
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="A vacancy with this id doesn't exist!")
 
   
   u_vacancy.vacancy_title = vacancy.vacancy_title

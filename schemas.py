@@ -18,6 +18,13 @@ class CreateCompanySchema(BaseModel):
     from_attributes = True
 
 
+class CreateCategorySchema(BaseModel):
+  category_name: str
+  
+  class Config:
+    from_attributes = True
+
+
 class UpdateVacancySchema(BaseModel):
   vacancy_title: str
   vacancy_content: str
