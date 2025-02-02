@@ -12,7 +12,7 @@ class CompanySchema(BaseModel):
 class CreateCompanySchema(BaseModel):
   company_name: str
   company_password: str
-  company_email: str
+  company_email: EmailStr
   
   class Config:
     from_attributes = True
@@ -33,3 +33,8 @@ class UpdateVacancySchema(BaseModel):
   vacancy_type: str
   vacancy_start_date: str
   vacancy_end_date: str
+
+
+class LoginSchema(BaseModel):
+  email: EmailStr
+  password: str

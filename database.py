@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-engine = create_engine('mysql://root:admin_001@localhost/creative')
+engine = create_engine('mysql+pymysql://root:admin_001@localhost/creative')
 SessionLocal = sessionmaker(bind=engine)
 session = SessionLocal()
 
