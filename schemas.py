@@ -1,4 +1,6 @@
 from pydantic import BaseModel, EmailStr
+from typing import Optional
+from datetime import datetime
 
 class CompanySchema(BaseModel):
   company_id: int
@@ -25,16 +27,36 @@ class CreateCategorySchema(BaseModel):
     from_attributes = True
 
 
+class CreateVacancySchema(BaseModel):
+    vacancy_title: str
+    vacancy_content: str
+    vacancy_location: str
+    vacancy_salary: float
+    vacancy_type: str
+    vacancy_start_date: datetime = datetime.now()
+    vacancy_end_date: datetime
+    category_id: int
+
+    class Config:
+        from_attributes = True
+
 class UpdateVacancySchema(BaseModel):
   vacancy_title: str
   vacancy_content: str
   vacancy_location: str
   vacancy_salary: float
   vacancy_type: str
-  vacancy_start_date: str
-  vacancy_end_date: str
 
 
 class LoginSchema(BaseModel):
   email: EmailStr
   password: str
+
+
+class Token(BaseModel):
+  access_token: str
+  token_type: str
+
+
+class TokenData(BaseModel):
+  company_id: Optional[int] = None
