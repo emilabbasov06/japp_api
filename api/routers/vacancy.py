@@ -1,8 +1,9 @@
 from fastapi import Depends, HTTPException, status, APIRouter
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
+from typing import List
 
-from models import VacancyModel
-from schemas import UpdateVacancySchema, CreateVacancySchema, TokenData
+from models import VacancyModel, CompanyModel
+from schemas import UpdateVacancySchema, CreateVacancySchema
 from ..oauth2 import get_current_user
 from database import get_db
 
