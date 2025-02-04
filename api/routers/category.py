@@ -14,9 +14,7 @@ router = APIRouter(
 @router.get('/')
 def get_categories(db: Session = Depends(get_db)):
   categories = db.query(CategoryModel).all()
-  return {
-    'categories': categories
-  }
+  return categories
 
 
 @router.get('/{id}')
