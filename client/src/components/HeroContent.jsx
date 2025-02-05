@@ -39,31 +39,22 @@ const HeroContent = () => {
               Get Hired in 3 Easy Steps – No Forms, No Hassle!
             </motion.h2>
 
-            <ul>
-              <motion.li
-                whileInView={{ opacity: 1, x: 0 }}
-                initial={{ opacity: 0, x: 100 }}
-                transition={{ duration: 0.3 }}
-                viewport={{ once: false, amount: 0.2 }}>
+            <motion.ul whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: 100 }}
+              transition={{ duration: 0.9 }}
+              viewport={{ once: false, amount: 0.2 }}>
+              <li>
                 <span>Step 1</span>: Find Your Dream Job
-              </motion.li>
+              </li>
 
-              <motion.li
-                whileInView={{ opacity: 1, x: 0 }}
-                initial={{ opacity: 0, x: 100 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: false, amount: 0.2 }}>
+              <li>
                 <span>Step 2</span>: Get the Company’s Contact
-              </motion.li>
+              </li>
 
-              <motion.li
-                whileInView={{ opacity: 1, x: 0 }}
-                initial={{ opacity: 0, x: 100 }}
-                transition={{ duration: 0.9 }}
-                viewport={{ once: false, amount: 0.2 }}>
+              <li>
                 <span>Step 3</span>: Get Hired!
-              </motion.li>
-            </ul>
+              </li>
+            </motion.ul>
           </div>
         </div>
       </section>

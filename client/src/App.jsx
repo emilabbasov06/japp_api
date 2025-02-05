@@ -14,6 +14,8 @@ import Companies from './pages/Companies';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Vacancies from './pages/Vacancies';
+import VacancyDetailPage from './pages/VacancyDetailPage';
+import CompanyDetailPage from './pages/CompanyDetailPage';
 
 const App = () => {
   const router = createBrowserRouter(
@@ -21,7 +23,9 @@ const App = () => {
       <Route path='' element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path='/vacancies' element={<Vacancies />} />
+        <Route path='/vacancies/:id' element={<VacancyDetailPage />} />
         <Route path='/companies' element={<Companies />} />
+        <Route path='/companies/:id' element={<CompanyDetailPage />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
         <Route path='*' element={<NotFound />} />

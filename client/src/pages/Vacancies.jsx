@@ -31,8 +31,8 @@ const Vacancies = () => {
       <h1 className='heading-h1'>Vacancies</h1>
       <input type="search" className='search' placeholder='Search for vacancies...' onChange={(e) => setSearch(e.target.value)} />
       <div className='vacancies'>
-        {vacancies.map((vacancy, index) => (
-          <VacancyCard key={index} vacancy={vacancy} />
+        {vacancies.map((vacancy, key) => (
+          <VacancyCard key={key} vacancy={vacancy} />
         ))}
       </div>
     </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-const VacancyCard = ({ vacancy }) => {
+const CompanyCard = ({ company }) => {
   const navigate = useNavigate();
 
   return (
@@ -14,13 +14,13 @@ const VacancyCard = ({ vacancy }) => {
       whileHover={{ scale: 1.02 }}
     >
       <div className='v_info'>
-        <h2 className="login-title heading-h2">{vacancy.vacancy_title}</h2>
+        <h2 className="login-title heading-h2">{company.company_name}</h2>
         <div className='btn_div'>
-          <button onClick={() => navigate(`/vacancies/${vacancy.vacancy_id}`)} className='button'>Apply</button>
+          <button onClick={() => navigate(`/companies/${company.company_id}`)} className='button'>Read More...</button>
         </div>
       </div>
     </motion.div >
   );
 };
 
-export default VacancyCard;
+export default CompanyCard;

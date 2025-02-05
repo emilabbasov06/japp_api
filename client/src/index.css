@@ -7,6 +7,14 @@
   font-family: 'Nunito', sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 .heading {
   background: url('./assets/images/background.jpg');
   background-repeat: no-repeat;
@@ -58,7 +66,7 @@
 .button:hover {
   background-color: #4f46e5;
   color: #fff;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(197, 197, 197, 0.712);
 }
 
 header,
@@ -74,13 +82,13 @@ header>div {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(197, 197, 197, 0.712);
   border-radius: 1rem;
   padding: 1rem 2rem;
 }
 
 .search {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(197, 197, 197, 0.712);
   width: 80%;
   padding: 1rem;
   font-size: 1.5rem;
@@ -130,7 +138,7 @@ main>div {
 }
 
 .welcome-img {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(197, 197, 197, 0.712);
   padding: 2rem;
   border: none;
   border-radius: 20rem;
@@ -219,7 +227,7 @@ section>div {
   background: #ffffff;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(197, 197, 197, 0.712);
   width: 350px;
   text-align: center;
 }
@@ -292,7 +300,7 @@ section>div {
   background: #ffffff;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(197, 197, 197, 0.712);
   width: 350px;
   text-align: center;
 }
@@ -353,8 +361,14 @@ section>div {
 }
 
 
-.vacancies {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+.vacancies,
+.companies {
+  background: url(./assets/images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  box-shadow: 0 10px 20px rgba(197, 197, 197, 0.712);
   padding: 3rem;
   border-radius: 4rem;
   width: 90%;
@@ -392,4 +406,14 @@ section>div {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.v_det {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+}
+
+.v_det p {
+  font-size: 1.5rem;
 }
