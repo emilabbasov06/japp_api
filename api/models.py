@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey, Text, Sequence
+from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey, Text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -19,6 +19,7 @@ class CompanyModel(Base):
   company_id = Column(Integer, primary_key=True, autoincrement=True)
   company_name = Column(String(255))
   company_email = Column(String(255), unique=True)
+  company_info = Column(Text)
   company_password = Column(String(255))
   
   

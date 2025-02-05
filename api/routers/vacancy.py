@@ -2,10 +2,10 @@ from fastapi import Depends, HTTPException, status, APIRouter
 from sqlalchemy.orm import Session
 from typing import Optional
 
-from models import VacancyModel
-from schemas import UpdateVacancySchema, CreateVacancySchema
+from ..models import VacancyModel
+from ..schemas import UpdateVacancySchema, CreateVacancySchema
 from ..oauth2 import get_current_user
-from database import get_db
+from ..database import get_db
 
 router = APIRouter(
   prefix='/vacancies',
@@ -15,9 +15,7 @@ router = APIRouter(
 @router.get('/')
 def get_vacancies(db: Session = Depends(get_db), search: Optional[str] = ''):
   vacancies = db.query(VacancyModel).filter(VacancyModel.vacancy_title.contains(search)).all()
-  return {
-    'vacancies': vacancies
-  }
+  return vacancies
 
 
 @router.get('/{id}')

@@ -1,10 +1,10 @@
 from fastapi import Depends, HTTPException, status, APIRouter
 from sqlalchemy.orm import Session
 
-from models import CompanyModel
-from schemas import CompanySchema, CreateCompanySchema
-from database import get_db
-from utils import hash
+from ..models import CompanyModel
+from ..schemas import CompanySchema, CreateCompanySchema
+from ..database import get_db
+from ..utils import hash
 
 router = APIRouter(
   prefix='/companies',
@@ -38,6 +38,7 @@ def create_company(company: CreateCompanySchema, db: Session = Depends(get_db)):
   new_company = CompanyModel(
     company_name = company.company_name,
     company_email = company.company_email,
+    company_info = company.company_info,
     company_password = company.company_password
   )
   

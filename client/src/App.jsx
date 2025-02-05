@@ -13,12 +13,14 @@ import NotFound from './pages/NotFound';
 import Companies from './pages/Companies';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Vacancies from './pages/Vacancies';
 
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path='/' element={<MainLayout />}>
+      <Route path='' element={<MainLayout />}>
         <Route index element={<Home />} />
+        <Route path='/vacancies' element={<Vacancies />} />
         <Route path='/companies' element={<Companies />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />

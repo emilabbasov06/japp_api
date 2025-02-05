@@ -5,6 +5,7 @@ from datetime import datetime
 class CompanySchema(BaseModel):
   company_id: int
   company_name: str
+  company_info: str
   company_email: str
   
   class Config:
@@ -14,6 +15,7 @@ class CompanySchema(BaseModel):
 class CreateCompanySchema(BaseModel):
   company_name: str
   company_password: str
+  company_info: str
   company_email: EmailStr
   
   class Config:

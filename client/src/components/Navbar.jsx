@@ -1,18 +1,21 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <header>
-      <div className='navbar'>
-        <div className="logo"><span>Vakant</span>Az</div>
-
-
+      <div>
+        <div className="logo heading">
+          LOGO
+        </div>
         <nav>
           <ul>
-            <li><NavLink to='/'>Ana səhifə</NavLink></li>
-            <li><NavLink to='/companies'>Şirkətlər</NavLink></li>
-            <li><NavLink to='/login'>Daxil ol</NavLink></li>
+            <li><NavLink to=''>Home</NavLink></li>
+            <li><NavLink to='/vacancies'>Vacancies</NavLink></li>
+            <li><NavLink to='/companies'>Companies</NavLink></li>
+            <li><button className='button' onClick={() => navigate('/login')}>Login</button></li>
           </ul>
         </nav>
       </div>
