@@ -329,7 +329,8 @@ section>div {
   margin-bottom: 5px;
 }
 
-.input-group input {
+.input-group input,
+textarea {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -416,4 +417,68 @@ section>div {
 
 .v_det p {
   font-size: 1.5rem;
+}
+
+
+/* styles/Modal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content span {
+  font-weight: bold;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 40%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  margin-bottom: 15px;
+}
+
+.modal-content button {
+  background: #4f46e5;
+  color: white;
+  border: 1px solid #4f46e5;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+
+.modal-content button:hover {
+  background: none;
+  color: #4f46e5;
+}
+
+.job-particles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.job-particles p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
 }

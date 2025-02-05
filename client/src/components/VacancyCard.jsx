@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 
-const VacancyCard = ({ vacancy }) => {
-  const navigate = useNavigate();
-
+const VacancyCard = ({ vacancy, onApply }) => {
   return (
     <motion.div
       className="login-card v_card"
@@ -16,7 +13,7 @@ const VacancyCard = ({ vacancy }) => {
       <div className='v_info'>
         <h2 className="login-title heading-h2">{vacancy.vacancy_title}</h2>
         <div className='btn_div'>
-          <button onClick={() => navigate(`/vacancies/${vacancy.vacancy_id}`)} className='button'>Apply</button>
+          <button onClick={() => onApply(vacancy)} className='button'>Apply</button>
         </div>
       </div>
     </motion.div >

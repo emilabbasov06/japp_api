@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 
-const CompanyCard = ({ company }) => {
-  const navigate = useNavigate();
-
+const CompanyCard = ({ company, onReadMore }) => {
   return (
     <motion.div
       className="login-card v_card"
@@ -16,7 +13,7 @@ const CompanyCard = ({ company }) => {
       <div className='v_info'>
         <h2 className="login-title heading-h2">{company.company_name}</h2>
         <div className='btn_div'>
-          <button onClick={() => navigate(`/companies/${company.company_id}`)} className='button'>Read More...</button>
+          <button onClick={() => onReadMore(company)} className='button'>Read More...</button>
         </div>
       </div>
     </motion.div >
@@ -24,3 +21,4 @@ const CompanyCard = ({ company }) => {
 };
 
 export default CompanyCard;
+

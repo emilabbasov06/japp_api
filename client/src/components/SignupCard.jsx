@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 const SignupCard = () => {
   const [companyName, setCompanyName] = useState('');
   const [email, setEmail] = useState('');
+  const [info, setInfo] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
@@ -45,6 +46,15 @@ const SignupCard = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
+            </motion.div>
+
+            <motion.div className="input-group" whileFocus={{ scale: 1.05 }}>
+              <label>Company Info</label>
+              <textarea
+                placeholder="Tell us about your company..."
+                required
+                onChange={(e) => setInfo(e.target.value)}
+              ></textarea>
             </motion.div>
 
             <motion.div className="input-group" whileFocus={{ scale: 1.05 }}>

@@ -1,10 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import VacancyCard from '../components/VacancyCard';
+import VacancyModal from '../components/VacancyModal';
 
 const Vacancies = () => {
   const [vacancies, setVacancies] = useState([]);
   const [search, setSearch] = useState("");
+  const [selectedVacancy, setSelectedVacancy] = useState(null);
 
   useEffect(() => {
     const fetchVacancies = async () => {
@@ -32,9 +34,12 @@ const Vacancies = () => {
       <input type="search" className='search' placeholder='Search for vacancies...' onChange={(e) => setSearch(e.target.value)} />
       <div className='vacancies'>
         {vacancies.map((vacancy, key) => (
-          <VacancyCard key={key} vacancy={vacancy} />
+          <VacancyCard key={key} vacancy={vacancy} onApply={() => setSelectedVacancy(vacancy)} />
         ))}
       </div>
+      {selectedVacancy && (
+        <VacancyModal vacancy={selectedVacancy} onClose={() => setSelectedVacancy(null)} />
+      )}
     </div>
   );
 };
