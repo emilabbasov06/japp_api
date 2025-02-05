@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const SignupCard = () => {
   const [companyName, setCompanyName] = useState('');
@@ -79,7 +80,7 @@ const SignupCard = () => {
           </form>
 
           <p className="signup-footer">
-            Already have an account? <a href="/login">Log in</a>
+            Already have an account? <Link to='/login'>Log in</Link>
           </p>
         </motion.div>
       </div>
