@@ -6,7 +6,7 @@ from ..schemas import CreateCategorySchema
 from ..database import get_db
 
 router = APIRouter(
-  prefix='/categories',
+  prefix='/api/categories',
   tags=['Categories']
 )
 

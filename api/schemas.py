@@ -14,9 +14,9 @@ class CompanySchema(BaseModel):
 
 class CreateCompanySchema(BaseModel):
   company_name: str
-  company_password: str
+  company_email: str
   company_info: str
-  company_email: EmailStr
+  company_password: str
   
   class Config:
     from_attributes = True

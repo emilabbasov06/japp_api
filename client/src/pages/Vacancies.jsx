@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import VacancyCard from '../components/VacancyCard';
 import VacancyModal from '../components/VacancyModal';
+import { VACANCIES_API_URL } from '../constants';
 
 const Vacancies = () => {
   const [vacancies, setVacancies] = useState([]);
@@ -12,7 +13,7 @@ const Vacancies = () => {
     const fetchVacancies = async () => {
       try {
         const query = search ? `?search=${search}` : ""; // If search is empty, fetch all vacancies
-        const response = await fetch(`http://127.0.0.1:8000/vacancies/${query}`);
+        const response = await fetch(`${VACANCIES_API_URL}${query}`);
 
         if (!response.ok) {
           throw new Error("Failed to fetch vacancies");

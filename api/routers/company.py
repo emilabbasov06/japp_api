@@ -7,7 +7,7 @@ from ..database import get_db
 from ..utils import hash
 
 router = APIRouter(
-  prefix='/companies',
+  prefix='/api/companies',
   tags=['Companies']
 )
 

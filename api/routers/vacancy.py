@@ -8,7 +8,7 @@ from ..oauth2 import get_current_user
 from ..database import get_db
 
 router = APIRouter(
-  prefix='/vacancies',
+  prefix='/api/vacancies',
   tags=['Vacancies']
 )
 

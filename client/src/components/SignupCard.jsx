@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { SIGNUP_API_URL } from '../constants';
+import axios from 'axios';
 
 const SignupCard = () => {
+  const navigate = useNavigate();
   const [companyName, setCompanyName] = useState('');
   const [email, setEmail] = useState('');
   const [info, setInfo] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Signing up with:', { companyName, email, password });
+
+    // Prepare the form data to be sent to the backend
+    const formData = {
+      company_name: companyName,
+      company_email: email,
+      company_info: info,
+      company_password: password,
+    };
+
+    try {
+      const response = await axios.post(SIGNUP_API_URL, formData);
+      navigate('/login');
+    } catch (error) {
+      console.error('Error during signup:', error.response?.data || error.message);
+    }
   };
 
   return (
@@ -54,6 +71,7 @@ const SignupCard = () => {
               <textarea
                 placeholder="Tell us about your company..."
                 required
+                value={info}
                 onChange={(e) => setInfo(e.target.value)}
               ></textarea>
             </motion.div>

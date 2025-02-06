@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CompanyCard from '../components/CompanyCard';
 import CompanyModal from '../components/CompanyModal';
+import { COMPANIES_API_URL } from '../constants';
 
 const Companies = () => {
   const [companies, setCompanies] = useState([]);
@@ -9,7 +10,7 @@ const Companies = () => {
   useEffect(() => {
     const fetchCompanies = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/companies/`);
+        const response = await fetch(COMPANIES_API_URL);
 
         if (!response.ok) {
           throw new Error("Failed to fetch companies");
