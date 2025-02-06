@@ -14,12 +14,14 @@ import Companies from './pages/Companies';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Vacancies from './pages/Vacancies';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='' element={<MainLayout />}>
         <Route index element={<Home />} />
+        <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/vacancies' element={<Vacancies />} />
         <Route path='/companies' element={<Companies />} />
         <Route path='/signup' element={<Signup />} />

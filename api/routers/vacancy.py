@@ -81,3 +81,14 @@ def update_vacancy(id: int, vacancy: UpdateVacancySchema, db: Session = Depends(
   return {
     'message': 'Selected Vacancy updated succesfully!'
   }
+
+
+@router.get('/dashboard/{company_id}')
+def detailed_information(company_id: int, db: Session = Depends(get_db)):
+  vacancies = db.query(VacancyModel).filter(VacancyModel.company_id == company_id).all()
+  if not vacancies:
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'There was any posted vacancy with Company ID: {company_id}')
+  return {
+    'vacancies': vacancies,
+    'vacancy_count': len(vacancies)
+  }
