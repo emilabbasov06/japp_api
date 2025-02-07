@@ -14,7 +14,6 @@ const SignupCard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Prepare the form data to be sent to the backend
     const formData = {
       company_name: companyName,
       company_email: email,

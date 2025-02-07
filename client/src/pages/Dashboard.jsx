@@ -7,13 +7,13 @@ import { LOGGED_IN_COMPANY_DASHBOARD_DATA } from '../constants';
 const Dashboard = () => {
   const { auth } = useAuth();
   const [companyData, setCompanyData] = useState(null);
-  const [loading, setLoading] = useState(true); // Track loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCompanyData = async () => {
       if (!auth.companyId) return;
 
-      setLoading(true); // Start loading
+      setLoading(true);
       try {
         const response = await fetch(`${LOGGED_IN_COMPANY_DASHBOARD_DATA}${auth.companyId}`, {
           headers: {
@@ -27,9 +27,9 @@ const Dashboard = () => {
         setCompanyData(data);
       } catch (error) {
         console.error("Error fetching company data:", error.message);
-        setCompanyData(null); // Ensure it's explicitly set to avoid errors
+        setCompanyData(null);
       } finally {
-        setLoading(false); // Stop loading
+        setLoading(false);
       }
     };
 

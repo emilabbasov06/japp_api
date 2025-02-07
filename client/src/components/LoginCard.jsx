@@ -7,20 +7,20 @@ const LoginCard = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { login } = useAuth(); // AuthContext-dən login funksiyasını alırıq
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
     try {
       const formData = new URLSearchParams();
-      formData.append("username", email); // FastAPI expects "username"
+      formData.append("username", email);
       formData.append("password", password);
 
       const response = await fetch("http://127.0.0.1:8000/login", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" }, // Fix content type
-        body: formData.toString(), // Convert to string
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData.toString(),
       });
 
       if (!response.ok) throw new Error("Login failed");
@@ -30,9 +30,9 @@ const LoginCard = () => {
 
       if (!token) throw new Error("No token received");
 
-      login(token); // AuthContext-də login funksiyasını çağırırıq
+      login(token);
 
-      navigate("/dashboard"); // İstifadəçini yönləndiririk
+      navigate("/dashboard");
     } catch (error) {
       console.error("Login error:", error.message);
       alert("Login failed! Check credentials.");
