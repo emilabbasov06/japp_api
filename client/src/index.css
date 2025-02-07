@@ -559,3 +559,15 @@ th {
 .logo {
   text-decoration: none;
 }
+
+.top {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 2rem;
+  height: fit-content;
+}
+
+.top div {
+  width: calc(100%/1);
+}
