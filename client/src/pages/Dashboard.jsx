@@ -1,7 +1,43 @@
 import React from 'react';
 import { MdWork } from "react-icons/md";
+import { useAuth } from '../context/AuthContext';
+import { useState, useEffect } from 'react';
+import { LOGGED_IN_COMPANY_DASHBOARD_DATA } from '../constants';
 
 const Dashboard = () => {
+  const { auth } = useAuth();
+  const [companyData, setCompanyData] = useState(null);
+  const [loading, setLoading] = useState(true); // Track loading state
+
+  useEffect(() => {
+    const fetchCompanyData = async () => {
+      if (!auth.companyId) return;
+
+      setLoading(true); // Start loading
+      try {
+        const response = await fetch(`${LOGGED_IN_COMPANY_DASHBOARD_DATA}${auth.companyId}`, {
+          headers: {
+            Authorization: `Bearer ${auth.token}`,
+          },
+        });
+
+        if (!response.ok) throw new Error("Failed to fetch company data");
+
+        const data = await response.json();
+        setCompanyData(data);
+      } catch (error) {
+        console.error("Error fetching company data:", error.message);
+        setCompanyData(null); // Ensure it's explicitly set to avoid errors
+      } finally {
+        setLoading(false); // Stop loading
+      }
+    };
+
+    fetchCompanyData();
+  }, [auth.companyId, auth.token]);
+
+  if (loading) return <p>Loading company data...</p>;
+
   return (
     <section className='dashboard'>
       <div className='stats'>
@@ -10,7 +46,7 @@ const Dashboard = () => {
           <div className="stat_one">
             <MdWork size={50} color='#4f46e5' />
             <div>
-              <span className='count'>844</span>
+              <span className='count'>{companyData.vacancy_count}</span>
               <small>Posted Jobs</small>
             </div>
           </div>
@@ -33,17 +69,19 @@ const Dashboard = () => {
               <th>End Date</th>
               <th>CID</th>
             </tr>
-            <tr>
-              <td>6</td>
-              <td>Backend Developer</td>
-              <td>We are looking for an experienced backend developer with expertise in FastAPI and SQLAlchemy.</td>
-              <td>Berlin, Germany</td>
-              <td>Full-Time</td>
-              <td>$6000</td>
-              <td>2025-02-03</td>
-              <td>2025-02-03</td>
-              <td>1</td>
-            </tr>
+            {companyData.vacancies.map((vacancy, index) => (
+              <tr key={index}>
+                <td>{vacancy.vacancy_id}</td>
+                <td>{vacancy.vacancy_title}</td>
+                <td>{vacancy.vacancy_content}</td>
+                <td>{vacancy.vacancy_location}</td>
+                <td>{vacancy.vacancy_type}</td>
+                <td>{vacancy.vacancy_salary} AZN</td>
+                <td>{vacancy.vacancy_start_date}</td>
+                <td>{vacancy.vacancy_end_date}</td>
+                <td>{vacancy.category_id}</td>
+              </tr>
+            ))}
           </table>
         </div>
       </div>

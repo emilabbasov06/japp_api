@@ -1,14 +1,42 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const LoginCard = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const { login } = useAuth(); // AuthContext-dən login funksiyasını alırıq
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Logging in with:', { email, password });
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    try {
+      const formData = new URLSearchParams();
+      formData.append("username", email); // FastAPI expects "username"
+      formData.append("password", password);
+
+      const response = await fetch("http://127.0.0.1:8000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" }, // Fix content type
+        body: formData.toString(), // Convert to string
+      });
+
+      if (!response.ok) throw new Error("Login failed");
+
+      const data = await response.json();
+      const token = data.access_token;
+
+      if (!token) throw new Error("No token received");
+
+      login(token); // AuthContext-də login funksiyasını çağırırıq
+
+      navigate("/dashboard"); // İstifadəçini yönləndiririk
+    } catch (error) {
+      console.error("Login error:", error.message);
+      alert("Login failed! Check credentials.");
+    }
   };
 
   return (

@@ -555,3 +555,7 @@ td {
 th {
   background-color: #4e46e591;
 }
+
+.logo {
+  text-decoration: none;
+}
