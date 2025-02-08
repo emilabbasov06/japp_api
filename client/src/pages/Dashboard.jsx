@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
   const navigate = useNavigate();
-
   const { auth } = useAuth();
   const [companyData, setCompanyData] = useState(null);
   const [categoryData, setCategoryData] = useState([]);
@@ -15,35 +14,37 @@ const Dashboard = () => {
   const [selectedJobForUpdate, setSelectedJobForUpdate] = useState(null);
   const [loading, setLoading] = useState(true);
 
-
   const handleUpdate = () => {
-    navigate('/edit', { state: { selectedJobForUpdate } });
-    console.log(selectedJobForDelete);
+    // Ensure selectedJobForUpdate has been set before navigating
+    if (selectedJobForUpdate) {
+      navigate('/edit', { state: { selectedJobForUpdate } });
+      console.log(selectedJobForUpdate);
+    }
   };
 
   const handleDelete = async () => {
     if (!selectedJobForDelete) return;
+
     try {
       const VACANCY_ID = selectedJobForDelete.vacancy_id;
       const response = await fetch(`${VACANCIES_API_URL}${VACANCY_ID}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${auth.token}`,
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       });
 
       if (!response.ok) {
-        throw new Error("Failed to delete vacancy");
+        throw new Error('Failed to delete vacancy');
       }
 
-      console.log("Vacancy deleted successfully");
+      console.log('Vacancy deleted successfully');
       location.reload();
     } catch (error) {
       console.log(error);
     }
   };
-
 
   useEffect(() => {
     const fetchCompanyData = async () => {
@@ -57,12 +58,12 @@ const Dashboard = () => {
           },
         });
 
-        if (!response.ok) throw new Error("Failed to fetch company data");
+        if (!response.ok) throw new Error('Failed to fetch company data');
 
         const data = await response.json();
         setCompanyData(data);
       } catch (error) {
-        console.error("Error fetching company data:", error.message);
+        console.error('Error fetching company data:', error.message);
         setCompanyData(null);
       } finally {
         setLoading(false);
@@ -72,12 +73,12 @@ const Dashboard = () => {
     const fetchCategoryData = async () => {
       try {
         const response = await fetch('http://localhost:8000/api/categories/');
-        if (!response.ok) throw new Error("Failed to fetch categories");
+        if (!response.ok) throw new Error('Failed to fetch categories');
 
         const data = await response.json();
         setCategoryData(data);
       } catch (error) {
-        console.error("Error fetching categories data:", error.message);
+        console.error('Error fetching categories data:', error.message);
         setCategoryData([]);
       }
     };
@@ -89,21 +90,21 @@ const Dashboard = () => {
   if (loading) return <p>Loading company data...</p>;
 
   return (
-    <section className='dashboard'>
-      <div className='top'>
-        <div className='stats'>
-          <h2 className='heading-h2'>Application statistics</h2>
+    <section className="dashboard">
+      <div className="top">
+        <div className="stats">
+          <h2 className="heading-h2">Application statistics</h2>
           <div className="stat_one">
-            <MdWork size={50} color='#4f46e5' />
+            <MdWork size={50} color="#4f46e5" />
             <div>
-              <span className='count'>{companyData?.vacancy_count || 0}</span>
+              <span className="count">{companyData?.vacancy_count || 0}</span>
               <small>Posted Jobs</small>
             </div>
           </div>
         </div>
 
-        <div className='categories'>
-          <h2 className='heading-h2'>Categories</h2>
+        <div className="categories">
+          <h2 className="heading-h2">Categories</h2>
           <div>
             <table>
               <thead>
@@ -125,11 +126,13 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className='stats'>
-        <div className='posted-jobs'>
-          <h2 className='heading-h2'>Posted Jobs</h2>
+      <div className="stats">
+        <div className="posted-jobs">
+          <h2 className="heading-h2">Posted Jobs</h2>
           <div className="crud">
-            <button className='button'><IoMdAdd size={30} /> New Job</button>
+            <button className="button">
+              <IoMdAdd size={30} /> New Job
+            </button>
           </div>
         </div>
         <div>
@@ -160,20 +163,34 @@ const Dashboard = () => {
                   <td>{new Date(vacancy.vacancy_start_date).toLocaleDateString()}</td>
                   <td>{new Date(vacancy.vacancy_end_date).toLocaleDateString()}</td>
                   <td>{vacancy.category_id}</td>
-                  <td className='gap-2'>
+                  <td className="gap-2">
                     <div>
-                      <button className='button red' onClick={() => {
-                        setSelectedJobForDelete(vacancy);
-                        handleDelete();
-                      }}><MdDeleteForever size={30} /></button>
-                      <button className='button orange' onClick={() => {
-                        setSelectedJobForUpdate(vacancy);
-                        handleUpdate();
-                      }}><MdEditSquare size={30} /></button>
+                      <button
+                        className="button red"
+                        onClick={() => {
+                          setSelectedJobForDelete(vacancy);
+                          handleDelete();
+                        }}
+                      >
+                        <MdDeleteForever size={30} />
+                      </button>
+                      <button
+                        className="button orange"
+                        onClick={() => {
+                          setSelectedJobForUpdate(vacancy);
+                          handleUpdate();
+                        }}
+                      >
+                        <MdEditSquare size={30} />
+                      </button>
                     </div>
                   </td>
                 </tr>
-              )) || <tr><td colSpan="9">No jobs posted yet.</td></tr>}
+              )) || (
+                  <tr>
+                    <td colSpan="9">No jobs posted yet.</td>
+                  </tr>
+                )}
             </tbody>
           </table>
         </div>
