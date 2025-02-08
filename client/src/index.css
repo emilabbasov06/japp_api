@@ -571,3 +571,32 @@ th {
 .top div {
   width: calc(100%/1);
 }
+
+.posted-jobs {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.crud {
+  display: flex;
+  gap: 1rem;
+}
+
+.crud button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.red {
+  border: 1px solid crimson;
+  color: crimson;
+}
+
+.red:hover {
+  background-color: crimson;
+  border: 1px solid crimson;
+  color: white;
+}
