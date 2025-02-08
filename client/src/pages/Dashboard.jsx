@@ -14,8 +14,11 @@ const Dashboard = () => {
   const [selectedJobForUpdate, setSelectedJobForUpdate] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const newJob = () => {
+    navigate('/create');
+  };
+
   const handleUpdate = () => {
-    // Ensure selectedJobForUpdate has been set before navigating
     if (selectedJobForUpdate) {
       navigate('/edit', { state: { selectedJobForUpdate } });
       console.log(selectedJobForUpdate);
@@ -130,7 +133,7 @@ const Dashboard = () => {
         <div className="posted-jobs">
           <h2 className="heading-h2">Posted Jobs</h2>
           <div className="crud">
-            <button className="button">
+            <button onClick={() => newJob()} className="button">
               <IoMdAdd size={30} /> New Job
             </button>
           </div>
