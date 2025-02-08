@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { MdWork, MdDeleteForever } from "react-icons/md";
+import { MdWork, MdDeleteForever, MdEditSquare } from "react-icons/md";
 import { useAuth } from '../context/AuthContext';
 import { LOGGED_IN_COMPANY_DASHBOARD_DATA, VACANCIES_API_URL } from '../constants';
 import { IoMdAdd } from "react-icons/io";
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
   const { auth } = useAuth();
   const [companyData, setCompanyData] = useState(null);
   const [categoryData, setCategoryData] = useState([]);
   const [selectedJobForDelete, setSelectedJobForDelete] = useState(null);
+  const [selectedJobForUpdate, setSelectedJobForUpdate] = useState(null);
   const [loading, setLoading] = useState(true);
 
+
+  const handleUpdate = () => {
+    navigate('/edit', { state: { selectedJobForUpdate } });
+    console.log(selectedJobForDelete);
+  };
 
   const handleDelete = async () => {
     if (!selectedJobForDelete) return;
@@ -151,11 +160,17 @@ const Dashboard = () => {
                   <td>{new Date(vacancy.vacancy_start_date).toLocaleDateString()}</td>
                   <td>{new Date(vacancy.vacancy_end_date).toLocaleDateString()}</td>
                   <td>{vacancy.category_id}</td>
-                  <td>
-                    <button className='button red' onClick={() => {
-                      setSelectedJobForDelete(vacancy);
-                      handleDelete();
-                    }}><MdDeleteForever size={30} /></button>
+                  <td className='gap-2'>
+                    <div>
+                      <button className='button red' onClick={() => {
+                        setSelectedJobForDelete(vacancy);
+                        handleDelete();
+                      }}><MdDeleteForever size={30} /></button>
+                      <button className='button orange' onClick={() => {
+                        setSelectedJobForUpdate(vacancy);
+                        handleUpdate();
+                      }}><MdEditSquare size={30} /></button>
+                    </div>
                   </td>
                 </tr>
               )) || <tr><td colSpan="9">No jobs posted yet.</td></tr>}

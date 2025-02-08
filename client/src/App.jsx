@@ -14,6 +14,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Vacancies from "./pages/Vacancies";
 import Dashboard from "./pages/Dashboard";
+import Update from "./pages/Update";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
 
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/edit" element={<Update />} />
       </Route>
       <Route path="/vacancies" element={<Vacancies />} />
       <Route path="/companies" element={<Companies />} />
