@@ -96,7 +96,7 @@ const Dashboard = () => {
     <section className="dashboard">
       <div className="top">
         <div className="stats">
-          <h2 className="heading-h2">Application statistics</h2>
+          <h2 className="bg-text font-2">Application statistics</h2>
           <div className="stat_one">
             <MdWork size={50} color="#4f46e5" />
             <div>
@@ -107,7 +107,7 @@ const Dashboard = () => {
         </div>
 
         <div className="categories">
-          <h2 className="heading-h2">Categories</h2>
+          <h2 className="bg-text font-2">Categories</h2>
           <div>
             <table>
               <thead>
@@ -131,7 +131,7 @@ const Dashboard = () => {
 
       <div className="stats">
         <div className="posted-jobs">
-          <h2 className="heading-h2">Posted Jobs</h2>
+          <h2 className="bg-text font-2">Posted Jobs</h2>
           <div className="crud">
             <button onClick={() => newJob()} className="button">
               <IoMdAdd size={30} /> New Job

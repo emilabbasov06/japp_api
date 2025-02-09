@@ -58,92 +58,96 @@ const Update = () => {
 
 
   return (
-    <main>
-      <div className='update'>
-        <h1 className='heading'>Create the vacancy</h1>
-        <form onSubmit={handleCreateSubmit}>
+    <section className="container-parent">
+      <div className="container box-shadow-none container-center">
+        <div className='card'>
+          <div className='card-info'>
+            <h1 className='bg-text'>Create the vacancy</h1>
+            <form onSubmit={handleCreateSubmit}>
 
-          <div className="input-group">
-            <label>Title</label>
-            <input
-              type="text"
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder='Front-End Developer, etc.'
-            />
+              <div className="input-group">
+                <label>Title</label>
+                <input
+                  type="text"
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder='Front-End Developer, etc.'
+                />
+              </div>
+
+              <div className="input-group">
+                <label>Content</label>
+                <textarea
+                  name="content"
+                  onChange={(e) => setContent(e.target.value)}
+                  placeholder='Vacancy info'
+                />
+              </div>
+
+              <div className="input-group">
+                <label>Location</label>
+                <input
+                  type="text"
+                  onChange={(e) => setLocation(e.target.value)}
+                  placeholder='Baku, Azerbaijan'
+                />
+              </div>
+
+              <div className="input-group">
+                <label>Type</label>
+                <input
+                  type="text"
+                  onChange={(e) => setType(e.target.value)}
+                  placeholder='Full-Time, Part-Time, etc.'
+                />
+              </div>
+
+              <div className='input-group'>
+                <label>Salary</label>
+                <input
+                  type="number"
+                  onChange={(e) => setSalary(e.target.value)}
+                  placeholder='Salary'
+                />
+              </div>
+
+              <div className='input-group'>
+                <label>Start Date</label>
+                <input
+                  type="text"
+                  onChange={(e) => setStartDate(e.target.value)}
+                  placeholder='Year-Month-Day'
+                />
+              </div>
+
+              <div className='input-group'>
+                <label>End Date</label>
+                <input
+                  type="text"
+                  onChange={(e) => setEndDate(e.target.value)}
+                  placeholder='Year-Month-Day'
+                />
+              </div>
+
+              <div className='input-group'>
+                <label>Category ID</label>
+                <input
+                  type="number"
+                  onChange={(e) => setCategoryID(e.target.value)}
+                  placeholder='For example: 1'
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="button"
+              >
+                Post
+              </button>
+            </form>
           </div>
-
-          <div className="input-group">
-            <label>Content</label>
-            <textarea
-              name="content"
-              onChange={(e) => setContent(e.target.value)}
-              placeholder='Vacancy info'
-            />
-          </div>
-
-          <div className="input-group">
-            <label>Location</label>
-            <input
-              type="text"
-              onChange={(e) => setLocation(e.target.value)}
-              placeholder='Baku, Azerbaijan'
-            />
-          </div>
-
-          <div className="input-group">
-            <label>Type</label>
-            <input
-              type="text"
-              onChange={(e) => setType(e.target.value)}
-              placeholder='Full-Time, Part-Time, etc.'
-            />
-          </div>
-
-          <div className='input-group'>
-            <label>Salary</label>
-            <input
-              type="number"
-              onChange={(e) => setSalary(e.target.value)}
-              placeholder='Salary'
-            />
-          </div>
-
-          <div className='input-group'>
-            <label>Start Date</label>
-            <input
-              type="text"
-              onChange={(e) => setStartDate(e.target.value)}
-              placeholder='Year-Month-Day'
-            />
-          </div>
-
-          <div className='input-group'>
-            <label>End Date</label>
-            <input
-              type="text"
-              onChange={(e) => setEndDate(e.target.value)}
-              placeholder='Year-Month-Day'
-            />
-          </div>
-
-          <div className='input-group'>
-            <label>Category ID</label>
-            <input
-              type="number"
-              onChange={(e) => setCategoryID(e.target.value)}
-              placeholder='For example: 1'
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="signup-button"
-          >
-            Post
-          </button>
-        </form>
+        </div>
       </div>
-    </main>
+    </section>
   );
 };
 

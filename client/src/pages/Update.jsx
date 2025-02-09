@@ -51,70 +51,74 @@ const Update = () => {
   };
 
   return (
-    <main>
-      <div className='update'>
-        <h1 className='heading'>Update the data</h1>
-        <form onSubmit={handleEditSubmit}>
+    <section className="container-parent">
+      <div className="container box-shadow-none container-center">
+        <div className='card'>
+          <div className='card-info'>
+            <h1 className='bg-text'>Update the data</h1>
+            <form onSubmit={handleEditSubmit}>
 
-          <div className="input-group">
-            <label>Title</label>
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder='Front-End Developer, etc.'
-            />
+              <div className="input-group">
+                <label>Title</label>
+                <input
+                  type="text"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder='Front-End Developer, etc.'
+                />
+              </div>
+
+              <div className="input-group">
+                <label>Content</label>
+                <textarea
+                  name="content"
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                  placeholder='Vacancy info'
+                />
+              </div>
+
+              <div className="input-group">
+                <label>Location</label>
+                <input
+                  type="text"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  placeholder='Baku, Azerbaijan'
+                />
+              </div>
+
+              <div className="input-group">
+                <label>Type</label>
+                <input
+                  type="text"
+                  value={type}
+                  onChange={(e) => setType(e.target.value)}
+                  placeholder='Full-Time, Part-Time, etc.'
+                />
+              </div>
+
+              <div className='input-group'>
+                <label>Salary</label>
+                <input
+                  type="number"
+                  value={salary}
+                  onChange={(e) => setSalary(e.target.value)}
+                  placeholder='Salary'
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="button"
+              >
+                Save
+              </button>
+            </form>
           </div>
-
-          <div className="input-group">
-            <label>Content</label>
-            <textarea
-              name="content"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              placeholder='Vacancy info'
-            />
-          </div>
-
-          <div className="input-group">
-            <label>Location</label>
-            <input
-              type="text"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              placeholder='Baku, Azerbaijan'
-            />
-          </div>
-
-          <div className="input-group">
-            <label>Type</label>
-            <input
-              type="text"
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-              placeholder='Full-Time, Part-Time, etc.'
-            />
-          </div>
-
-          <div className='input-group'>
-            <label>Salary</label>
-            <input
-              type="number"
-              value={salary}
-              onChange={(e) => setSalary(e.target.value)}
-              placeholder='Salary'
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="signup-button"
-          >
-            Save
-          </button>
-        </form>
+        </div>
       </div>
-    </main>
+    </section>
   );
 };
 
