@@ -27,21 +27,23 @@ const Companies = () => {
   }, []);
 
   return (
-    <div className='v_page'>
-      <h1 className='heading-h1'>Companies</h1>
-      <div className='companies'>
-        {companies.map((company, index) => (
-          <CompanyCard
-            key={index}
-            company={company}
-            onReadMore={() => setSelectedCompany(company)}
-          />
-        ))}
+    <section className='container-parent'>
+      <div className="container companies-container">
+        <h1 className='bg-text font-3'>Companies</h1>
+        <div className='companies'>
+          {companies.map((company, index) => (
+            <CompanyCard
+              key={index}
+              company={company}
+              onReadMore={() => setSelectedCompany(company)}
+            />
+          ))}
+        </div>
+        {selectedCompany && (
+          <CompanyModal company={selectedCompany} onClose={() => setSelectedCompany(null)} />
+        )}
       </div>
-      {selectedCompany && (
-        <CompanyModal company={selectedCompany} onClose={() => setSelectedCompany(null)} />
-      )}
-    </div>
+    </section>
   );
 };
 

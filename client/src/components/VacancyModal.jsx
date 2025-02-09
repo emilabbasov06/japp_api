@@ -7,7 +7,7 @@ const VacancyModal = ({ vacancy, onClose }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2 className='heading-h2'>{vacancy.vacancy_title}</h2>
+        <h2 className='bg-text'>{vacancy.vacancy_title}</h2>
         <div className='job-particles'>
           <p><span><MdWork size={25} color='orange' /></span> {vacancy.vacancy_type}</p>
           <p><span><IoLocationSharp size={25} color='dodgerblue' /></span> {vacancy.vacancy_location}</p>
@@ -15,7 +15,7 @@ const VacancyModal = ({ vacancy, onClose }) => {
         </div>
         <h3>Detailed information</h3>
         <p>{vacancy.vacancy_content}</p>
-        <button onClick={onClose}>Close</button>
+        <button className='button' onClick={onClose}>Close</button>
       </div>
     </div>
   );

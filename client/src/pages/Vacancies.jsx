@@ -30,18 +30,20 @@ const Vacancies = () => {
   }, [search]);
 
   return (
-    <div className='v_page'>
-      <h1 className='heading-h1'>Vacancies</h1>
-      <input type="search" className='search' placeholder='Search for vacancies...' onChange={(e) => setSearch(e.target.value)} />
-      <div className='vacancies'>
-        {vacancies.map((vacancy, key) => (
-          <VacancyCard key={key} vacancy={vacancy} onApply={() => setSelectedVacancy(vacancy)} />
-        ))}
+    <section className="container-parent">
+      <div className='container vacancies-container'>
+        <h1 className='bg-text font-4'>Vacancies</h1>
+        <input type="search" className='search' placeholder='Search for vacancies...' onChange={(e) => setSearch(e.target.value)} />
+        <div className='vacancies'>
+          {vacancies.map((vacancy, key) => (
+            <VacancyCard key={key} vacancy={vacancy} onApply={() => setSelectedVacancy(vacancy)} />
+          ))}
+        </div>
+        {selectedVacancy && (
+          <VacancyModal vacancy={selectedVacancy} onClose={() => setSelectedVacancy(null)} />
+        )}
       </div>
-      {selectedVacancy && (
-        <VacancyModal vacancy={selectedVacancy} onClose={() => setSelectedVacancy(null)} />
-      )}
-    </div>
+    </section>
   );
 };
 

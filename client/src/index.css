@@ -31,6 +31,71 @@
   gap: 1rem;
 }
 
+.card {
+  padding: 2rem;
+  width: calc(100% / 4);
+  box-shadow: 0 10px 20px rgba(197, 197, 197, 0.712);
+  border: none;
+  border-radius: 1rem;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content span {
+  font-weight: bold;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 40%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  margin-bottom: 15px;
+}
+
+.button {
+  background: none;
+  border: 1px solid #4f46e5;
+  padding: 1rem;
+  color: #4f46e5;
+  border-radius: 0.5rem;
+  transition: 0.5s all;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #4f46e5;
+  color: #fff;
+}
+
 .box-shadow-none {
   box-shadow: none;
 }
@@ -99,23 +164,6 @@ p {
 
 .link:hover {
   color: #4f46e5;
-}
-
-.button {
-  background: none;
-  border: 1px solid #4f46e5;
-  padding: 1rem;
-  color: #4f46e5;
-  border-radius: 0.5rem;
-  transition: 0.5s all;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
-.button:hover {
-  background-color: #4f46e5;
-  color: #fff;
 }
 
 /* Navbar.jsx (CSS Styles) -> ENDING POINT */
@@ -187,6 +235,78 @@ p {
 /* HeroContentSecond.jsx (CSS Styles) -> ENDING POINT */
 
 
+
+/* CompanyCard.jsx && Companies.jsx (CSS Styles) -> STARTING POINT */
+
+.companies-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  gap: 2rem;
+}
+
+.companies {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* CompanyCard.jsx && Companies.jsx (CSS Styles) -> ENDING POINT */
+
+
+
+/* Vacancies.jsx && Vacancies.jsx (CSS Styles) -> STARTING POINT */
+
+.vacancies-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  gap: 2rem;
+}
+
+.vacancies {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.search {
+  padding: 1rem;
+  width: 80%;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 10px 20px rgba(197, 197, 197, 0.712);
+}
+
+.job-particles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.job-particles p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.card-bigger {
+  width: calc(100% / 3);
+}
+
+/* Vacancies.jsx && Vacancies.jsx (CSS Styles) -> ENDING POINT */
 
 
 
