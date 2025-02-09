@@ -11,16 +11,16 @@ const Navbar = () => {
 
 
   return (
-    <header>
-      <div>
-        <div className="logo heading">
-          <Link className='logo heading' to='/'>LOGO</Link>
+    <header className='container-parent'>
+      <div className='container navbar-parent'>
+        <div>
+          <Link className='link logo bg-text' to='/'>LOGO</Link>
         </div>
         <nav>
-          <ul>
-            <li><NavLink to=''>Home</NavLink></li>
-            <li><NavLink to='/vacancies'>Vacancies</NavLink></li>
-            <li><NavLink to='/companies'>Companies</NavLink></li>
+          <ul className='navbar'>
+            <li><NavLink className='link' to=''>Home</NavLink></li>
+            <li><NavLink className='link' to='/vacancies'>Vacancies</NavLink></li>
+            <li><NavLink className='link' to='/companies'>Companies</NavLink></li>
             <li>{localStorage.getItem("token") ? <button className='button' onClick={logout}>Logout</button> : <button className='button' onClick={() => navigate("/login")}>Login</button>}
             </li>
           </ul>

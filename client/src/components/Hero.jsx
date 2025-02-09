@@ -16,13 +16,13 @@ const Hero = () => {
   });
 
   return (
-    <main>
-      <div>
-        <div className="welcome">
+    <main className='container-parent'>
+      <div className='container hero'>
+        <div className='hero-content'>
           <motion.h1 variants={container(0)}
             initial='hidden'
             animate='visible'
-            className='heading'>Your Next Career Move Starts Here!</motion.h1>
+            className='bg-text font-5'>Your Next Career Move Starts Here!</motion.h1>
           <motion.p variants={container(0.2)}
             initial='hidden'
             animate='visible'>
@@ -40,7 +40,7 @@ const Hero = () => {
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="welcome-img">
+          className="hero-image">
           <img src={home_main} alt="Welcome" />
         </motion.div>
       </div>

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+/* ROOT (CSS Styles) -> ENDING POINT */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +9,144 @@
   font-family: 'Nunito', sans-serif;
 }
 
+.container-parent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.container {
+  width: 90%;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(197, 197, 197, 0.712);
+}
+
+.bg-text {
+  background: url('./assets/images/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Luckiest Guy', sans-serif;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.font-3 {
+  font-size: 3rem;
+}
+
+.font-4 {
+  font-size: 4rem;
+}
+
+.font-5 {
+  font-size: 5rem;
+}
+
+p {
+  color: #333333;
+}
+
+/* ROOT (CSS Styles) -> ENDING POINT */
+
+
+/* Navbar.jsx (CSS Styles) -> STARTING POINT */
+
+.navbar-parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 2rem;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+
+.link {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  transition: 0.5s all;
+}
+
+.link:hover {
+  color: #4f46e5;
+}
+
+.button {
+  background: none;
+  border: 1px solid #4f46e5;
+  padding: 1rem;
+  color: #4f46e5;
+  border-radius: 0.5rem;
+  transition: 0.5s all;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #4f46e5;
+  color: #fff;
+}
+
+/* Navbar.jsx (CSS Styles) -> ENDING POINT */
+
+
+
+/* Hero.jsx (CSS Styles) -> STARTING POINT */
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: none;
+}
+
+.hero-content,
+.hero-image {
+  width: calc(100% / 2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero-content {
+  align-items: start;
+}
+
+/* Hero.jsx (CSS Styles) -> ENDING POINT */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 body {
   overflow-x: hidden;
   background-size: cover;
@@ -417,7 +557,6 @@ textarea {
 }
 
 
-/* styles/Modal.css */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -641,3 +780,4 @@ th {
 .update form textarea {
   width: 100%;
 }
+  */
