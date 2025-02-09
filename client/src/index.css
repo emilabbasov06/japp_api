@@ -31,6 +31,38 @@
   gap: 1rem;
 }
 
+.container-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+label {
+  color: #333333;
+}
+
+form .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+form .input-group input,
+textarea {
+  padding: 1rem;
+  border: 1px solid rgba(197, 197, 197, 0.712);
+  border-radius: 1rem;
+  font-size: 1.1rem;
+}
+
 .card {
   padding: 2rem;
   width: calc(100% / 4);
@@ -260,7 +292,7 @@ p {
 
 
 
-/* Vacancies.jsx && Vacancies.jsx (CSS Styles) -> STARTING POINT */
+/* VacancyCard.jsx && Vacancies.jsx (CSS Styles) -> STARTING POINT */
 
 .vacancies-container {
   display: flex;
@@ -306,7 +338,19 @@ p {
   width: calc(100% / 3);
 }
 
-/* Vacancies.jsx && Vacancies.jsx (CSS Styles) -> ENDING POINT */
+/* VacancyCard.jsx && Vacancies.jsx (CSS Styles) -> ENDING POINT */
+
+
+/* Login.jsx && LoginCard.jsx (CSS Styles) -> STARTING POINT */
+
+.login-card {
+  width: 30%;
+  box-shadow: 0 10px 20px rgba(197, 197, 197, 0.712);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+/* Login.jsx && LoginCard.jsx (CSS Styles) -> ENDING POINT */
 
 
 

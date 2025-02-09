@@ -3,9 +3,11 @@ import SignupCard from '../components/SignupCard';
 
 const Signup = () => {
   return (
-    <div>
-      <SignupCard />
-    </div>
+    <section className='container-parent'>
+      <div className='container container-center box-shadow-none'>
+        <SignupCard />
+      </div>
+    </section>
   );
 };
 
