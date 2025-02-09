@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import 'tailwindcss';
 
 /* ROOT (CSS Styles) -> ENDING POINT */
 
@@ -257,6 +258,7 @@ p {
 /* HeroContentSecond.jsx (CSS Styles) -> STARTING POINT */
 
 .second-content {
+  width: calc(100%/ 2);
   display: flex;
   justify-content: center;
   align-items: start;
@@ -521,6 +523,138 @@ th {
 
 /* WHOLE-RESPONSIVE DESIGN -> STARTING POINT */
 
-/* ------------------------------- */
+/* For tablets (screens smaller than 1024px) */
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .card {
+    width: calc(100% / 2);
+  }
+
+  .card-bigger {
+    width: 100%;
+  }
+
+  .login-card {
+    width: 50%;
+  }
+
+  .stat_one {
+    width: calc(100% / 2);
+  }
+
+  .modal-content {
+    width: 60%;
+  }
+}
+
+/* For mobile devices (screens smaller than 768px) */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .second-content {
+    width: 100%;
+  }
+
+  .container-flex {
+    flex-direction: column;
+  }
+
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-content,
+  .hero-image {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .companies,
+  .vacancies {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .login-card {
+    width: 80%;
+  }
+
+  .dashboard {
+    padding: 2rem;
+    gap: 3rem;
+  }
+
+  .stat_one {
+    width: 100%;
+  }
+
+  .top {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-content {
+    width: 80%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* For very small mobile devices (screens smaller than 480px) */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .font-5 {
+    font-size: 3rem;
+  }
+
+  .font-4 {
+    font-size: 2.5rem;
+  }
+
+  .font-3 {
+    font-size: 2rem;
+  }
+
+  .font-2 {
+    font-size: 1.5rem;
+  }
+
+  .login-card {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .stat_one {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .button {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
 
 /* WHOLE-RESPONSIVE DESIGN -> ENDING POINT */
