@@ -17,7 +17,7 @@ const Hero = () => {
 
   return (
     <main className='container-parent'>
-      <div className='container hero'>
+      <div className='container container-flex box-shadow-none'>
         <div className='hero-content'>
           <motion.h1 variants={container(0)}
             initial='hidden'
